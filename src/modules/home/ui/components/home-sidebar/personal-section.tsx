@@ -1,33 +1,36 @@
 "use client";
 
-import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import { FlameIcon, HomeIcon, PlaySquareIcon } from "lucide-react";
+import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
+import {  HistoryIcon,  ListVideoIcon,  ThumbsUpIcon } from "lucide-react";
 import Link from "next/link";
 
 const items = [
     {
-        title: "Principal",
-        url: "/",
-        icon: HomeIcon
-    },
-    {
-        title: "Inscrições",
-        url: "/feed/subscriptions",
-        icon: PlaySquareIcon,
+        title: "Histórico",
+        url: "/playlists/history",
+        icon: HistoryIcon,
         auth: true,
     },
     {
-        title: "Trending",
-        url: "/feed/subscriptions",
-        icon: FlameIcon,
+        title: "Vídeos Curtidos",
+        url: "/playlists/liked",
+        icon: ThumbsUpIcon,
+        auth: true,
+    },
+    {
+        title: "Todos as playlists",
+        url: "/playlists",
+        icon: ListVideoIcon,
+        auth: true,
     },
 ]
 
-export const MainSection = () => {
+export const PersonalSection = () => {
     
 
     return (
         <SidebarGroup>
+            <SidebarGroupLabel>Você</SidebarGroupLabel>
             <SidebarGroupContent>
                 <SidebarMenu>
                     {items.map((item) => (
